@@ -9,5 +9,9 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
     List<Expense> findByDateGreaterThanEqual(Date date);
     List<Expense> findByCategory(String category);
+    List<Expense> findByUser(User user);
 
+    List<Expense> findByUserAndDateGreaterThan(User user, Date dateIsGreaterThan);
+
+    List<Expense> findByUserAndCategory(User user, String category);
 }
