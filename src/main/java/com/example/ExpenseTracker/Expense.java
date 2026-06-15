@@ -21,6 +21,11 @@ public class Expense {
         private Date date;
         private String category;
 
+
+        @ManyToOne
+        @JoinColumn(name = "user_id")
+        private User user;
+
         public Expense() {}
         public Expense(String description, Integer amount , Date date , String category) {
             this.description = description;
@@ -28,6 +33,13 @@ public class Expense {
             this.category= category;
             this.date = date;
         }
+    public Expense(String description, Integer amount , Date date , String category , User user) {
+        this.description = description;
+        this.amount = amount;
+        this.category= category;
+        this.date = date;
+        this.user = user;
+    }
 
         public String getDescription(){
             return description;
@@ -47,4 +59,12 @@ public class Expense {
             return "ID: " + id.toString() + " - " + date.toString() + " - " + category + " - " + description + " - " + amount.toString();
 
         }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
